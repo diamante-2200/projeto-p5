@@ -1,21 +1,29 @@
+let cor;
+let circuloX;
+let circuloY;
+
 function setup() {
-    createCanvas(400, 400);
-  }
+  createCanvas(400, 400);
+    background("maroon");
+  cor = color(random(0,255), random(0,255), random(0,255), random(0,100));
+  cor2 = color(random(0,255), random(0,255), random(0,255), random(0,100));
+  circuloX = [0, 0,0]
+  circuloY = [random(height), random(height),random(height)]
+}
+function draw() {
+  fill(cor);
   
-  function draw() {
-    background("white");
-    fill("black");
-    textSize(64)
-    textAlign(CENTER);
+  for(let contador in circuloX) {
+  circle(circuloX[contador], circuloY[contador], 50);
+   circuloX[contador] += random(0,3);
+   circuloY[contador] += random(-3, 3);
     
-    let maximo = width;
-    let minimo = 0;
-    
-  textFont("Helvetica");
-  
-    let palavra = "mirrorball"
-    
-    let quantidade = map(mouseX, 0, width, 0, 9)
-    let parcial = palavra.substring(0, quantidade);
-    text(parcial, 200, 200)
+    if(circuloX[contador] >= width){
+      circuloX[contador] = 0;
+    }
+  }  
+
+  if(mouseIsPressed){
+    cor = color(random(0,255), random(0,255), random(0,255), random(0,100));
   }
+}
