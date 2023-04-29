@@ -21,6 +21,12 @@ function draw() {
     if(circuloX[contador] >= width){
       circuloX[contador] = 0;
     }
+    if(circuloY[contador] >= height){
+      circuloY[contador] = 400;
+    }
+    if(circuloY[contador] <= height){
+      circuloY[contador] = 0;
+    }
   }  
 
   if(mouseIsPressed){
